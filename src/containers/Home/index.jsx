@@ -1,30 +1,41 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-// Importe seus estilos aqui se necessário
-// import './styles.css';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+import './style.css';
 
 const Home = () => {
-  const [selectedCount, setSelectedCount] = useState(0);
+  const [selectedPhotos, setSelectedPhotos] = useState([]);
 
   const photoUrls = [
-    { url: 'https://conteudo.imguol.com.br/c/noticias/1d/2021/12/21/aliancas-casamento-festa-1640114144428_v2_900x506.jpg' },
-    { url: 'https://i0.wp.com/grupobisutti.com.br/wp-content/uploads/2022/09/CHB_CA_22.10.21-@rafaelcruz_fotografia-57.jpeg?resize=900%2C601&ssl=1' },
-    { url: 'https://conteudo.imguol.com.br/c/noticias/1d/2021/12/21/aliancas-casamento-festa-1640114144428_v2_900x506.jpg' },
-    { url: 'https://i0.wp.com/grupobisutti.com.br/wp-content/uploads/2022/09/CHB_CA_22.10.21-@rafaelcruz_fotografia-57.jpeg?resize=900%2C601&ssl=1' }
+    { id: 1, url: 'https://bookstudioapp.s3.amazonaws.com/assets/4.jpg' },
+    { id: 2, url: 'https://bookstudioapp.s3.amazonaws.com/assets/5.jpg' },
+    { id: 3, url: 'https://bookstudioapp.s3.amazonaws.com/assets/6.jpg' },
+    { id: 4, url: 'https://bookstudioapp.s3.amazonaws.com/assets/7.jpg' },
+    { id: 5, url: 'https://bookstudioapp.s3.amazonaws.com/assets/8.jpg' },
+    { id: 6, url: 'https://bookstudioapp.s3.amazonaws.com/assets/9.jpg' },
+    { id: 7, url: 'https://bookstudioapp.s3.amazonaws.com/assets/10.jpg' },
+    { id: 8, url: 'https://bookstudioapp.s3.amazonaws.com/assets/11.jpeg' }
   ];
+
+  const toggleSelection = (photoId) => {
+    if (selectedPhotos.includes(photoId)) {
+      setSelectedPhotos(selectedPhotos.filter((id) => id !== photoId));
+    } else {
+      setSelectedPhotos([...selectedPhotos, photoId]);
+    }
+  };
 
   return (
     <div>
       <h1>Monte seu Book</h1>
-      <p>Quantidade selecionada: {selectedCount}</p>
+      <p>Quantidade selecionada: {selectedPhotos.length}</p>
       <div className="photo-container">
-        {photoUrls.map((photo, index) => (
+        {photoUrls.map((photo) => (
           <img
-            key={index}
+            key={photo.id}
             src={photo.url}
-            alt={`Foto ${index + 1}`}
-            className={`photo ${index < selectedCount ? 'selected' : ''}`}
-            onClick={() => setSelectedCount(index + 1)}
+            alt={`Foto ${photo.id}`}
+            className={`photo ${selectedPhotos.includes(photo.id) ? 'selected' : ''}`}
+            onClick={() => toggleSelection(photo.id)}
           />
         ))}
       </div>
@@ -37,3 +48,10 @@ const Home = () => {
 };
 
 export default Home;
+
+
+
+
+
+
+
