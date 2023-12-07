@@ -1,38 +1,39 @@
 import React, { useState } from 'react';
-//import { Link, NavLink, useNavigate } from 'react-router-dom';
-//import './styles.css';
+import { Link } from 'react-router-dom';
+// Importe seus estilos aqui se necessário
+// import './styles.css';
 
-const Home= () => {
+const Home = () => {
+  const [selectedCount, setSelectedCount] = useState(0);
 
-   const [selectedCount, setSelectedCount] = useState(0);
-  
+  const photoUrls = [
+    { url: 'https://conteudo.imguol.com.br/c/noticias/1d/2021/12/21/aliancas-casamento-festa-1640114144428_v2_900x506.jpg' },
+    { url: 'https://i0.wp.com/grupobisutti.com.br/wp-content/uploads/2022/09/CHB_CA_22.10.21-@rafaelcruz_fotografia-57.jpeg?resize=900%2C601&ssl=1' },
+    { url: 'https://conteudo.imguol.com.br/c/noticias/1d/2021/12/21/aliancas-casamento-festa-1640114144428_v2_900x506.jpg' },
+    { url: 'https://i0.wp.com/grupobisutti.com.br/wp-content/uploads/2022/09/CHB_CA_22.10.21-@rafaelcruz_fotografia-57.jpeg?resize=900%2C601&ssl=1' }
+  ];
 
-    const photoUrls = [
-      
-      { url: 'https://i.pinimg.com/564x/d8/b0/65/d8b065fac8fd0cbd35ecc8e1f85bc8aa.jpg' },
-      { url: 'https://i.pinimg.com/564x/d8/b0/65/d8b065fac8fd0cbd35ecc8e1f85bc8aa.jpg' },
-      { url: 'https://i.pinimg.com/564x/d8/b0/65/d8b065fac8fd0cbd35ecc8e1f85bc8aa.jpg' },
-      { url: 'https://i.pinimg.com/564x/d8/b0/65/d8b065fac8fd0cbd35ecc8e1f85bc8aa.jpg' }
- 
-    ];
-  
-    return (
-      <div>
-        <h1>Monte seu Book</h1>
-        <p>Quantidade selecionada: {selectedCount}</p>
-        <div className="photo-container">
-          {photoUrls.map((photo, index) => (
-            <img
-              key={index}
-              src={photo.url}
-              alt={`Foto ${index + 1}`}
-              className={`photo ${index < selectedCount ? 'selected' : ''}`}
-              onClick={() => setSelectedCount(index + 1)}
-            />
-          ))}
-        </div>
+  return (
+    <div>
+      <h1>Monte seu Book</h1>
+      <p>Quantidade selecionada: {selectedCount}</p>
+      <div className="photo-container">
+        {photoUrls.map((photo, index) => (
+          <img
+            key={index}
+            src={photo.url}
+            alt={`Foto ${index + 1}`}
+            className={`photo ${index < selectedCount ? 'selected' : ''}`}
+            onClick={() => setSelectedCount(index + 1)}
+          />
+        ))}
       </div>
-    );
-  };
-  
-  export default Home;
+
+      <Link to="/FecharBook">
+        <button>Fechar Book</button>
+      </Link>
+    </div>
+  );
+};
+
+export default Home;

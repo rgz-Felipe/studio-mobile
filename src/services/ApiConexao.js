@@ -1,4 +1,3 @@
-// ApiService.js 
 import axios from 'axios';
 
 const API_URL = 'https://xllighjqy0.execute-api.us-east-1.amazonaws.com/dev/cliente'; 
@@ -12,7 +11,7 @@ class ApiService {
     return axios.post(`${API_URL}/${endpoint}`, data);
   }
 
-  //(PUT, DELETE, etc.)
+  //(Get, PUT, DELETE)
 }
 
 export default ApiService;

@@ -1,0 +1,37 @@
+/* Adicione esses estilos ao seu arquivo de estilo */
+
+/* Estilo para o contêiner principal do componente */
+div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f0f0;
+  }
+  
+  /* Estilo para o título principal */
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* Estilo para o parágrafo de status */
+  p {
+    font-size: 1.2rem;
+    margin: 10px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  /* Estilo para o parágrafo quando o status está em preparação */
+  p.status-em-preparacao {
+    background-color: #dff0d8;
+  }
+  

@@ -6,6 +6,7 @@ import Perfil from './containers/Perfil'
 import Home from './containers/Home';
 import  Header from './components/Header';
 import CadastroContato from './containers/Registro';
+import FecharBook from './containers/FecharBook';
 
 
 const App = () => (
@@ -16,6 +17,7 @@ const App = () => (
       <Route path="Home" element={<Home />} />
       <Route path="Perfil" element={<Perfil />} />
       <Route path="Registro" element={<CadastroContato />} />
+      <Route path="FecharBook" element={<FecharBook/>}/>
    
     </RoutesProvider>
   </BrowserRouter>

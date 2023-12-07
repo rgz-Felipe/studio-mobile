@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-
-
-
-
 const ClienteComponente = () => {
   const [cliente, setCliente] = useState({
     nome: 'Joao Das Couves',
@@ -28,16 +24,13 @@ const ClienteComponente = () => {
       <p>Óla, {cliente.nome}</p>
       <p>Telefone: {cliente.telefone}</p>
       <p>Tipo de Plano: {cliente.tipoPerfil}</p>
-     
+
       <p>
         Monte seu <Link to="/Home">Book</Link>.
       </p>
-
       <p>
-        <Link to="/">Sair</Link>.
-      </p> 
-
-
+        <Link to="/"><button>Sair</button></Link>
+      </p>
 
     </div>
   );
